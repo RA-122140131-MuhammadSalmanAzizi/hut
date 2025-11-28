@@ -1,0 +1,121 @@
+/* ==========================================
+   LOVEBOOK - Main CSS Entry Point
+   Import semua file CSS yang terpisah
+   ========================================== */
+
+/* Base - Reset & Variables */
+@import "./base.css";
+
+/* Components */
+@import "./login.css";
+@import "./header.css";
+@import "./sidebar.css";
+@import "./feed.css";
+@import "./modals.css";
+@import "./letter.css";
+@import "./sections.css";
+@import "./thesis-lab.css";
+
+/* Responsive */
+@import "./responsive.css";
+
+/* PENTING: Visibility harus di-import TERAKHIR */
+@import "./visibility.css";
+
+/* ==========================================
+   ADDITIONAL UTILITIES & OVERRIDES
+   ========================================== */
+
+/* Messenger Bubble */
+.messenger-bubble {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--love-pink), #c44569);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(255, 107, 157, 0.4);
+  transition: all 0.3s ease;
+  z-index: 50;
+}
+
+.messenger-bubble:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(255, 107, 157, 0.5);
+}
+
+.messenger-bubble i {
+  font-size: 28px;
+  color: white;
+}
+
+.messenger-bubble .notification-dot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  background: var(--love-red);
+  border-radius: var(--radius-full);
+  border: 3px solid white;
+}
+
+/* Notification Items */
+.notif-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.notif-item:hover {
+  background: var(--bg-hover);
+}
+
+.notif-item.unread {
+  background: var(--fb-blue-light);
+}
+
+.notif-item img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.notif-content {
+  flex: 1;
+}
+
+.notif-content p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.notif-content small {
+  color: var(--fb-blue);
+  font-size: 12px;
+}
+
+.notif-item:not(.unread) .notif-content small {
+  color: var(--text-secondary);
+}
+
+/* Extra Utility Classes */
+.gradient-text {
+  background: linear-gradient(135deg, var(--love-pink), var(--love-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pink-glow {
+  box-shadow: 0 0 20px rgba(255, 107, 157, 0.4);
+}

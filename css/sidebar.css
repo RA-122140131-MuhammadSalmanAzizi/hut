@@ -1,0 +1,232 @@
+/* ==========================================
+   SIDEBAR STYLES (Left & Right)
+   ========================================== */
+
+/* Main Layout - 3 Column */
+.main-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  padding-top: 16px;
+  position: relative;
+}
+
+/* Left Sidebar */
+.sidebar-left {
+  width: 280px;
+  padding: 0 8px 0 16px;
+  position: sticky;
+  top: 72px;
+  height: calc(100vh - 72px);
+  overflow-y: auto;
+  display: none;
+  z-index: 10;
+}
+
+@media (min-width: 1100px) {
+  .sidebar-left {
+    display: block;
+  }
+}
+
+/* Sidebar Menu Items */
+.sidebar-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.sidebar-menu-item:hover {
+  background: var(--bg-hover);
+}
+
+.sidebar-menu-item img {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+}
+
+.sidebar-menu-item i {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  border-radius: var(--radius-full);
+  background: var(--bg-tertiary);
+  color: var(--fb-blue);
+}
+
+.sidebar-menu-item span {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* Sidebar Dropdown */
+.sidebar-dropdown {
+  margin: 4px 0;
+}
+
+.sidebar-dropdown .dropdown-trigger {
+  position: relative;
+  user-select: none;
+}
+
+.sidebar-dropdown .dropdown-trigger .dropdown-arrow {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-dropdown.open .dropdown-trigger .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.sidebar-dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  margin-top: 4px;
+}
+
+.sidebar-dropdown.open .sidebar-dropdown-content {
+  max-height: 500px;
+  padding: 8px 0;
+}
+
+.sidebar-sub-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px 10px 20px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border-radius: var(--radius-sm);
+  margin: 2px 8px;
+}
+
+.sidebar-sub-item:hover {
+  background: var(--bg-hover);
+  transform: translateX(4px);
+}
+
+.sidebar-sub-item i {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border-radius: var(--radius-full);
+  background: var(--bg-secondary);
+}
+
+.sidebar-sub-item span {
+  font-weight: 500;
+}
+
+/* Sidebar dropdown active state */
+.sidebar-dropdown.open .dropdown-trigger {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 105, 135, 0.1),
+    rgba(102, 126, 234, 0.1)
+  );
+}
+
+.sidebar-dropdown.open .dropdown-trigger i:first-child {
+  color: var(--love-pink) !important;
+}
+
+/* Right Sidebar */
+.sidebar-right {
+  width: 280px;
+  padding: 0 16px 0 8px;
+  position: sticky;
+  top: 72px;
+  height: calc(100vh - 72px);
+  overflow-y: auto;
+  display: none;
+}
+
+@media (min-width: 1400px) {
+  .sidebar-right {
+    display: block;
+  }
+}
+
+.sidebar-section-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 12px 8px 8px;
+}
+
+/* Friend Online Item */
+.friend-online-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.friend-online-item:hover {
+  background: var(--bg-hover);
+}
+
+.friend-online-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  position: relative;
+}
+
+.friend-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.friend-name {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.friend-status {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.friend-status.online::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--fb-green);
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+/* Feed Container */
+.feed-container {
+  flex: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 16px;
+}

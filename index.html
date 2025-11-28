@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lovebook</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27></text></svg>"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <!-- ==================== LOGIN PAGE - FACEBOOK OLD STYLE ==================== -->
+    <div id="login-page">
+      <!-- Header Bar -->
+      <div class="fb-old-header">
+        <div class="fb-old-header-content">
+          <h1 class="fb-old-logo">lovebook</h1>
+          <div class="fb-old-login-form">
+            <div class="fb-old-input-group">
+              <label>Username</label>
+              <input type="text" id="username" autocomplete="off" />
+            </div>
+            <div class="fb-old-input-group">
+              <label>Password</label>
+              <input type="password" id="password" />
+            </div>
+            <button class="fb-old-login-btn" onclick="attemptLogin()">
+              Log In
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="fb-old-main">
+        <div class="fb-old-content">
+          <!-- Left Side - Info -->
+          <div class="fb-old-left">
+            <h2>Lovebook helps you connect and share with your loved one.</h2>
+            <div class="fb-old-illustration">
+              <div class="fb-old-couple">
+                <img
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=salman&backgroundColor=b6e3f4"
+                  alt="Salman"
+                />
+                <div class="fb-old-heart">💕</div>
+                <img
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=nabila&backgroundColor=ffdfbf"
+                  alt="Nabila"
+                />
+              </div>
+              <p class="fb-old-tagline">
+                Website khusus untuk Nabila tersayang 💕
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Side - Login Box -->
+          <div class="fb-old-right">
+            <div class="fb-old-login-box">
+              <h3>Login to Lovebook</h3>
+              <div class="login-error" id="login-error">
+                <i class="fas fa-exclamation-circle"></i>
+                <span>Username atau password salah!</span>
+              </div>
+              <div class="fb-old-form-group">
+                <label>Username:</label>
+                <input
+                  type="text"
+                  id="username-mobile"
+                  autocomplete="off"
+                  placeholder="Nama pacar kamu"
+                />
+              </div>
+              <div class="fb-old-form-group">
+                <label>Password:</label>
+                <input
+                  type="password"
+                  id="password-mobile"
+                  placeholder="ddmmyy jadian"
+                />
+              </div>
+              <button class="fb-old-submit-btn" onclick="attemptLogin()">
+                <i class="fas fa-sign-in-alt"></i> Log In
+              </button>
+              <div class="fb-old-hints">
+                <p><strong>💡 Hint:</strong></p>
+                <p>Username: Nama cowok ganteng yang disayang</p>
+                <p>Password: Tanggal jadian (ddmmyy)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="fb-old-footer">
+        <p>Made with 💕 for Nabila | © 2025 Lovebook</p>
+      </div>
+    </div>
+
+    <!-- ==================== MAIN APP ==================== -->
+    <div id="main-app">
+      <!-- Header / Navbar -->
+      <header class="header">
+        <div class="header-content">
+          <div class="header-left">
+            <a href="#" class="header-logo" onclick="showSection('home')">
+              <div class="logo-icon"><i class="fas fa-heart"></i></div>
+              <span class="logo-text">Love<span>book</span></span>
+            </a>
+            <div class="header-search">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Cari di Lovebook" />
+            </div>
+          </div>
+
+          <nav class="header-center">
+            <div
+              class="header-nav-item active"
+              data-section="home"
+              onclick="showSection('home')"
+              title="Beranda"
+            >
+              <i class="fas fa-home"></i>
+            </div>
+            <div
+              class="header-nav-item"
+              data-section="friends"
+              onclick="showSection('friends')"
+              title="Teman"
+            >
+              <i class="fas fa-user-friends"></i>
+            </div>
+            <div
+              class="header-nav-item"
+              data-section="videos"
+              onclick="showSection('videos')"
+              title="Video"
+            >
+              <i class="fas fa-tv"></i>
+            </div>
+            <div
+              class="header-nav-item"
+              data-section="marketplace"
+              onclick="showSection('marketplace')"
+              title="Marketplace"
+            >
+              <i class="fas fa-store"></i>
+            </div>
+            <div
+              class="header-nav-item"
+              data-section="groups"
+              onclick="showSection('groups')"
+              title="Grup"
+            >
+              <i class="fas fa-users"></i>
+            </div>
+          </nav>
+
+          <div class="header-right">
+            <button
+              class="header-icon-btn"
+              title="Menu"
+              onclick="toggleDropdown('menu-dropdown')"
+            >
+              <i class="fas fa-th"></i>
+            </button>
+            <button
+              class="header-icon-btn"
+              title="Messenger"
+              onclick="openLetterModal()"
+            >
+              <i class="fab fa-facebook-messenger"></i>
+              <span class="badge">1</span>
+            </button>
+            <button
+              class="header-icon-btn"
+              title="Notifikasi"
+              onclick="toggleDropdown('notif-dropdown')"
+            >
+              <i class="fas fa-bell"></i>
+              <span class="badge">9+</span>
+            </button>
+            <div
+              class="header-profile"
+              onclick="toggleDropdown('profile-dropdown')"
+            >
+              <img
+                src="https://api.dicebear.com/7.x/avataaars/svg?seed=nabila&backgroundColor=ffdfbf"
+                alt="Profile"
+              />
+              <span>Nabila</span>
+              <i class="fas fa-caret-down"></i>
+            </div>
+
+            <!-- Profile Dropdown -->
+            <div class="dropdown-menu" id="profile-dropdown">
+              <div class="dropdown-header">
+                <img
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=nabila&backgroundColor=ffdfbf"
+                  alt=""
+                />
+                <div>
+                  <strong>Nabila</strong>
+                  <small>Lihat profil kamu</small>
+                </div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item" onclick="openLetterModal()">
+                <i class="fas fa-envelope"></i> Surat dari Salman
+              </a>
+              <a href="#" class="dropdown-item" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Keluar
+              </a>
+            </div>
+
+            <!-- Notification Dropdown -->
+            <div class="dropdown-menu dropdown-notif" id="notif-dropdown">
+              <div class="dropdown-title">Notifikasi</div>
+              <div class="notif-item unread">
+                <img
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=salman&backgroundColor=b6e3f4"
+                  alt=""
+                />
+                <div class="notif-content">
+                  <p>
+                    <strong>Salman Ganteng</strong> mengirim surat cinta untuk
+                    kamu
+                  </p>
+                  <small>Baru saja</small>
+                </div>
+              </div>
+              <div class="notif-item unread">
+                <img
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=birthday&backgroundColor=ffd5dc"
+                  alt=""
+                />
+                <div class="notif-content">
+                  <p>
+                    <strong>Selamat Ulang Tahun!</strong> Semoga bahagia selalu!
+                  </p>
+                  <small>Hari ini</small>
+                </div>
+              </div>
+              <div class="notif-item">
+                <img
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=lia&backgroundColor=c0aede"
+                  alt=""
+                />
+                <div class="notif-content">
+                  <p><strong>Lia Jomblo</strong> mengomentari status kamu</p>
+                  <small>2 jam lalu</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Spacer untuk header fixed -->
+      <div class="header-spacer"></div>
+
+      <!-- Main Content Container -->
+      <div class="main-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar-left">
+          <a href="#" class="sidebar-menu-item" onclick="showSection('home')">
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=nabila&backgroundColor=ffdfbf"
+              alt=""
+            />
+            <span>Nabila</span>
+          </a>
+
+          <!-- Aktivitas Seru Dropdown -->
+          <div class="sidebar-dropdown">
+            <div
+              class="sidebar-menu-item dropdown-trigger"
+              onclick="toggleSidebarDropdown('activities-dropdown', event)"
+            >
+              <i class="fas fa-gamepad" style="color: #1877f2"></i>
+              <span>Aktivitas Seru</span>
+              <i class="fas fa-chevron-down dropdown-arrow"></i>
+            </div>
+            <div class="sidebar-dropdown-content" id="activities-dropdown">
+              <a
+                href="javascript:void(0)"
+                class="sidebar-sub-item"
+                onclick="openQuizModal()"
+              >
+                <i class="fas fa-brain" style="color: #667eea"></i>
+                <span>Quiz Cinta</span>
+              </a>
+              <a
+                href="javascript:void(0)"
+                class="sidebar-sub-item"
+                onclick="openWheelModal()"
+              >
+                <i class="fas fa-dharmachakra" style="color: #e17055"></i>
+                <span>Spin & Win</span>
+              </a>
+              <a
+                href="javascript:void(0)"
+                class="sidebar-sub-item"
+                onclick="openGalleryModal()"
+              >
+                <i class="fas fa-images" style="color: #f093fb"></i>
+                <span>Galeri Kenangan</span>
+              </a>
+              <a
+                href="javascript:void(0)"
+                class="sidebar-sub-item"
+                onclick="openLetterModal()"
+              >
+                <i class="fas fa-envelope-open-text" style="color: #e84393"></i>
+                <span>Surat Cinta</span>
+              </a>
+              <a
+                href="javascript:void(0)"
+                class="sidebar-sub-item"
+                onclick="openTruthOrDare()"
+              >
+                <i class="fas fa-dice" style="color: #00b894"></i>
+                <span>Truth or Dare</span>
+              </a>
+              <a
+                href="javascript:void(0)"
+                class="sidebar-sub-item"
+                onclick="openLoveCalculator()"
+              >
+                <i class="fas fa-calculator" style="color: #fd79a8"></i>
+                <span>Love Calculator</span>
+              </a>
+              <a
+                href="javascript:void(0)"
+                class="sidebar-sub-item"
+                onclick="openThesisLab()"
+              >
+                <i class="fas fa-flask" style="color: #3b82f6"></i>
+                <span>🧪 Racikan Kelulusan</span>
+              </a>
+            </div>
+          </div>
+
+          <a href="#" class="sidebar-menu-item" onclick="showSection('home')">
+            <i class="fas fa-heart" style="color: #f02849"></i>
+            <span>Relationship</span>
+          </a>
+          <a href="#" class="sidebar-menu-item" onclick="openGalleryModal()">
+            <i class="fas fa-images" style="color: #41b35d"></i>
+            <span>Kenangan</span>
+          </a>
+          <a href="#" class="sidebar-menu-item" onclick="openCountdownModal()">
+            <i class="fas fa-calendar-alt" style="color: #e74c3c"></i>
+            <span>Anniversary</span>
+          </a>
+          <a href="#" class="sidebar-menu-item" onclick="openWishlistModal()">
+            <i class="fas fa-gift" style="color: #a332c7"></i>
+            <span>Wishlist</span>
+          </a>
+        </aside>
+
+        <!-- Feed Container - HOME -->
+        <main class="feed-container" id="section-home">
+          <!-- Birthday Banner -->
+          <div class="birthday-banner">
+            <div class="balloons"></div>
+            <h2>Happy 21st Birthday, Nabila!</h2>
+            <p>
+              29 November 2025 - Selamat ulang tahun sayang! Semoga semua
+              harapan dan mimpimu tercapai!
+            </p>
+          </div>
+
+          <!-- Stories Section -->
+          <section class="stories-section">
+            <div class="stories-header">
+              <h3>Cerita</h3>
+              <a href="#">Lihat Semua</a>
+            </div>
+            <div class="stories-grid">
+              <div
+                class="story-card create-story"
+                onclick="alert('Fitur coming soon! ')"
+              >
+                <div
+                  class="story-img"
+                  style="
+                    background-image: url('https://api.dicebear.com/7.x/avataaars/svg?seed=nabila&backgroundColor=ffdfbf');
+                  "
+                ></div>
+                <div class="story-create-btn"><i class="fas fa-plus"></i></div>
+                <span class="story-name">Buat Cerita</span>
+              </div>
+              <div
+                class="story-card"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=200&h=300&fit=crop');
+                "
+                onclick="openStoryModal(0)"
+              >
+                <div class="story-avatar">
+                  <img
+                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=salman&backgroundColor=b6e3f4"
+                    alt=""
+                  />
+                </div>
+                <span class="story-name">Salman </span>
+              </div>
+              <div
+                class="story-card"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=200&h=300&fit=crop');
+                "
+                onclick="openStoryModal(1)"
+              >
+                <div class="story-avatar">
+                  <img
+                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=love&backgroundColor=ffd5dc"
+                    alt=""
+                  />
+                </div>
+                <span class="story-name">Our Story </span>
+              </div>
+              <div
+                class="story-card"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=200&h=300&fit=crop');
+                "
+                onclick="openStoryModal(2)"
+              >
+                <div class="story-avatar">
+                  <img
+                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=memory&backgroundColor=c0aede"
+                    alt=""
+                  />
+                </div>
+                <span class="story-name">Memories </span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Relationship Status Card -->
+          <section class="relationship-card">
+            <div class="relationship-header">
+              <i class="fas fa-heart"></i>
+              <h3>In a Relationship</h3>
+            </div>
+            <div class="couple-display">
+              <div class="couple-person">
+                <img
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=salman&backgroundColor=b6e3f4"
+                  alt="Salman"
+                />
+                <div class="name">Salman</div>
+              </div>
+              <div class="couple-heart">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="couple-person">
+                <img
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=nabila&backgroundColor=ffdfbf"
+                  alt="Nabila"
+                />
+                <div class="name">Nabila</div>
+              </div>
+            </div>
+            <div class="relationship-stats">
+              <div class="since">Bersama sejak 2 Mei 2025</div>
+              <div class="days-count" id="days-counter">
+                <span class="count">0</span>
+              </div>
+              <div class="days-label">hari penuh cinta</div>
+            </div>
+          </section>
+
+          <!-- Post 1 - Birthday Post -->
+          <article class="post-card">
+            <div class="post-header">
+              <img
+                class="avatar"
+                src="https://api.dicebear.com/7.x/avataaars/svg?seed=salman&backgroundColor=b6e3f4"
+                alt=""
+              />
+              <div class="post-meta">
+                <div class="post-author">Salman Ganteng</div>
+                <div class="post-time">
+                  <span>29 November 2025</span>
+                  <span></span>
+                  <i class="fas fa-globe-asia"></i>
+                </div>
+              </div>
+              <div class="post-menu"><i class="fas fa-ellipsis-h"></i></div>
+            </div>
+            <div class="post-content">
+              <p>HAPPY BIRTHDAY SAYANG!</p>
+              <p>
+                Selamat ulang tahun ke-21 buat cewek paling cantik, paling baik,
+                dan paling aku sayang sedunia!
+              </p>
+              <p>
+                Semoga di umur 21 ini semua mimpi-mimpi kamu tercapai,
+                skripsinya lancar, dan kita bisa wisuda bareng tahun depan!
+              </p>
+              <p>
+                Makasih udah jadi pacar yang luar biasa. I love you more than
+                words can say
+              </p>
+              <p class="hashtags">#HBDNabila #21stBirthday #LoveYou</p>
+            </div>
+            <div class="post-media">
+              <img
+                src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=500&fit=crop"
+                alt=""
+              />
+            </div>
+            <div class="post-reactions">
+              <div style="display: flex; align-items: center">
+                <div class="reaction-icons">
+                  <div class="icon love"><i class="fas fa-heart"></i></div>
+                  <div class="icon like"><i class="fas fa-thumbs-up"></i></div>
+                </div>
+                <span class="reaction-count" id="like-count-1" data-count="999"
+                  >999</span
+                >
+              </div>
+              <div class="comment-share-count">
+                <span onclick="toggleComments(1)">210 komentar</span>
+                <span>45 share</span>
+              </div>
+            </div>
+            <div class="post-actions">
+              <button class="post-action-btn" onclick="toggleLike(this, 1)">
+                <i class="far fa-thumbs-up"></i>
+                <span>Suka</span>
+              </button>
+              <button class="post-action-btn" onclick="toggleComments(1)">
+                <i class="far fa-comment"></i>
+                <span>Komentar</span>
+              </button>
+              <button class="post-action-btn" onclick="sharePost()">
+                <i class="far fa-share-square"></i>
+                <span>Bagikan</span>
+              </button>
+            </div>
+            <div class="post-comments-section" id="comments-1">
+              <div class="comment-input-wrap">
+                <img
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=nabila&backgroundColor=ffdfbf"
+                  alt=""
+                />
+                <div class="input-box">
+                  <input type="text" placeholder="Tulis komentar..." />
+                </div>
+              </div>
+              <div class="comment-item">
+                <img
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=lia"
+                  alt=""
+                />
+                <div>
+                  <div class="comment-bubble">
+                    <div class="author">Lia Jomblo</div>
+                    <div class="text">
+                      HAPPY BIRTHDAY BIL!! Semoga makin langgeng sama Salman ya
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="comment-item">
+                <img
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=tere"
+                  alt=""
+                />
+                <div>
+                  <div class="comment-bubble">
+                    <div class="author">Tere Softspoken</div>
+                    <div class="text">Ciee yang ultah~ sehat terus ya bil</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 2 - Anniversary Post -->
+          <article class="post-card">
+            <div class="post-header">
+              <img
+                class="avatar"
+                src="https://api.dicebear.com/7.x/avataaars/svg?seed=salman&backgroundColor=b6e3f4"
+                alt=""
+              />
+              <div class="post-meta">
+                <div class="post-author">
+                  Salman Ganteng
+                  <span class="with">bersama</span>
+                  <span class="partner">Nabila</span>
+                </div>
+                <div class="post-time">
+                  <span>2 Mei 2025</span>
+                  <span></span>
+                  <i class="fas fa-globe-asia"></i>
+                </div>
+              </div>
+              <div class="post-menu"><i class="fas fa-ellipsis-h"></i></div>
+            </div>
+            <div class="post-content">
+              <p>
+                Hari ini adalah hari paling spesial! Akhirnya aku resmi jadian
+                sama orang yang udah lama aku suka
+              </p>
+              <p>
+                Makasih udah mau jadi pacar aku ya sayang. Aku janji bakal jaga
+                kamu dan bikin kamu bahagia selalu
+              </p>
+              <p class="hashtags">#OfficiallyTaken #LoveYou #020525</p>
+            </div>
+            <div class="post-media">
+              <img
+                src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&h=500&fit=crop"
+                alt=""
+              />
+            </div>
+            <div class="post-reactions">
+              <div style="display: flex; align-items: center">
+                <div class="reaction-icons">
+                  <div class="icon love"><i class="fas fa-heart"></i></div>
+                </div>
+                <span class="reaction-count" id="like-count-2" data-count="888"
+                  >888</span
+                >
+              </div>
+              <div class="comment-share-count">
+                <span onclick="toggleComments(2)">156 komentar</span>
+              </div>
+            </div>
+            <div class="post-actions">
+              <button class="post-action-btn" onclick="toggleLike(this, 2)">
+                <i class="far fa-thumbs-up"></i>
+                <span>Suka</span>
+              </button>
+              <button class="post-action-btn" onclick="toggleComments(2)">
+                <i class="far fa-comment"></i>
+                <span>Komentar</span>
+              </button>
+              <button class="post-action-btn" onclick="sharePost()">
+                <i class="far fa-share-square"></i>
+                <span>Bagikan</span>
+              </button>
+            </div>
+            <div class="post-comments-section" id="comments-2">
+              <div class="comment-item">
+                <img
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=eliza"
+                  alt=""
+                />
+                <div>
+                  <div class="comment-bubble">
+                    <div class="author">Eliza Bucin</div>
+                    <div class="text">AKHIRNYAAA!! Congrats bil!</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Fun Facts Post -->
+          <article class="post-card">
+            <div class="post-header">
+              <img
+                class="avatar"
+                src="https://api.dicebear.com/7.x/avataaars/svg?seed=lovebook&backgroundColor=c0aede"
+                alt=""
+              />
+              <div class="post-meta">
+                <div class="post-author">Lovebook Facts</div>
+                <div class="post-time">Fun facts tentang kalian</div>
+              </div>
+            </div>
+            <div class="post-content">
+              <p><strong> Fun Facts Salman & Nabila:</strong></p>
+              <p>Warna favorit Nabila: Biru</p>
+              <p>Jadian: 2 Mei 2025</p>
+              <p>Ulang tahun Nabila: 29 November</p>
+              <p>Status: Masih lovey-dovey!</p>
+              <p>Target: Wisuda bareng!</p>
+            </div>
+          </article>
+        </main>
+
+        <!-- FRIENDS SECTION -->
+        <main
+          class="feed-container section-content"
+          id="section-friends"
+          style="display: none"
+        >
+          <div class="section-header-card">
+            <h2><i class="fas fa-user-friends"></i> Teman-teman Nabila</h2>
+            <p>Orang-orang yang sayang sama Nabila</p>
+          </div>
+
+          <div class="friends-grid" id="friends-list">
+            <!-- Will be populated by JS -->
+          </div>
+        </main>
+
+        <!-- VIDEOS SECTION -->
+        <main
+          class="feed-container section-content"
+          id="section-videos"
+          style="display: none"
+        >
+          <div class="section-header-card">
+            <h2><i class="fas fa-tv"></i> Video Kenangan</h2>
+            <p>Momen-momen yang terekam</p>
+          </div>
+
+          <div class="videos-grid">
+            <div class="video-card" onclick="playVideo(1)">
+              <div class="video-thumbnail">
+                <img
+                  src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&h=300&fit=crop"
+                  alt=""
+                />
+                <div class="play-overlay"><i class="fas fa-play"></i></div>
+              </div>
+              <div class="video-info">
+                <h4>Video Kenangan #1</h4>
+                <p>Momen indah bersama</p>
+              </div>
+            </div>
+            <div class="video-card" onclick="playVideo(2)">
+              <div class="video-thumbnail">
+                <img
+                  src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=400&h=300&fit=crop"
+                  alt=""
+                />
+                <div class="play-overlay"><i class="fas fa-play"></i></div>
+              </div>
+              <div class="video-info">
+                <h4>Video Kenangan #2</h4>
+                <p>Jalan-jalan bareng</p>
+              </div>
+            </div>
+            <div class="video-card coming-soon">
+              <div class="video-thumbnail">
+                <div class="coming-soon-overlay">
+                  <i class="fas fa-clock"></i>
+                  <span>Coming Soon</span>
+                </div>
+              </div>
+              <div class="video-info">
+                <h4>Video Baru</h4>
+                <p>Tunggu video selanjutnya ya!</p>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- MARKETPLACE SECTION -->
+        <main
+          class="feed-container section-content"
+          id="section-marketplace"
+          style="display: none"
+        >
+          <div class="section-header-card">
+            <h2><i class="fas fa-store"></i> Toko Cinta</h2>
+            <p>Barang-barang lucu buat Nabila</p>
+          </div>
+
+          <div class="marketplace-grid">
+            <div class="product-card" onclick="buyProduct('Pelukan Gratis')">
+              <div class="product-img"></div>
+              <h4>Pelukan Gratis</h4>
+              <p class="price">Rp 0 <small>(Unlimited stock!)</small></p>
+              <button class="btn-buy">Ambil Sekarang!</button>
+            </div>
+            <div class="product-card" onclick="buyProduct('Ciuman di Pipi')">
+              <div class="product-img"></div>
+              <h4>Ciuman di Pipi</h4>
+              <p class="price">Rp 0 <small>(Khusus Nabila)</small></p>
+              <button class="btn-buy">Klaim!</button>
+            </div>
+            <div class="product-card" onclick="buyProduct('Quality Time')">
+              <div class="product-img"></div>
+              <h4>Quality Time 1 Jam</h4>
+              <p class="price">Rp 0 <small>(Kapanpun!)</small></p>
+              <button class="btn-buy">Redeem!</button>
+            </div>
+            <div class="product-card" onclick="buyProduct('Traktiran Makan')">
+              <div class="product-img"></div>
+              <h4>Traktiran Makan</h4>
+              <p class="price">Rp 0 <small>(Salman yang bayar)</small></p>
+              <button class="btn-buy">Mau!</button>
+            </div>
+            <div class="product-card" onclick="buyProduct('Nonton Bareng')">
+              <div class="product-img"></div>
+              <h4>Nonton Bareng</h4>
+              <p class="price">Rp 0 <small>(Film pilihan Nabila)</small></p>
+              <button class="btn-buy">Book Now!</button>
+            </div>
+            <div class="product-card" onclick="buyProduct('Kata-kata Sayang')">
+              <div class="product-img"></div>
+              <h4>Kata-kata Sayang</h4>
+              <p class="price">Rp 0 <small>(Setiap hari)</small></p>
+              <button class="btn-buy">Request!</button>
+            </div>
+          </div>
+        </main>
+
+        <!-- GROUPS SECTION -->
+        <main
+          class="feed-container section-content"
+          id="section-groups"
+          style="display: none"
+        >
+          <div class="section-header-card">
+            <h2><i class="fas fa-users"></i> Grup & Pesan dari Teman</h2>
+            <p>Komunitas yang Nabila ikuti dan pesan-pesan dari mereka 💕</p>
+          </div>
+
+          <div class="groups-list">
+            <!-- KKN 321 ITERA -->
+            <div class="group-card">
+              <div
+                class="group-cover"
+                style="background: linear-gradient(135deg, #667eea, #764ba2)"
+              >
+                <span>🎓</span>
+              </div>
+              <div class="group-info">
+                <h4>KKN 321 ITERA</h4>
+                <p>15 anggota • Grup KKN</p>
+                <div class="group-messages">
+                  <div class="message-item">
+                    <img
+                      src="https://api.dicebear.com/7.x/avataaars/svg?seed=bitra&backgroundColor=b6e3f4"
+                      alt=""
+                    />
+                    <div class="message-content">
+                      <div class="message-author">Bitra</div>
+                      <div class="message-text">
+                        Happy birthday Nabila! Semangat terus ya! 🎂
+                      </div>
+                    </div>
+                  </div>
+                  <div class="message-item">
+                    <img
+                      src="https://api.dicebear.com/7.x/avataaars/svg?seed=caca&backgroundColor=ffd5dc"
+                      alt=""
+                    />
+                    <div class="message-content">
+                      <div class="message-author">Caca</div>
+                      <div class="message-text">
+                        Selamat ulang tahun Bil! Sukses selalu ya! ✨
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="group-message">
+                  <p>
+                    "Semangat Nabila! Sukses terus kuliahnya, jangan lupa
+                    bahagia! 💪"
+                  </p>
+                  <small>- Bitra, Caca & Teman-teman KKN 321 ITERA</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- KKN CANTI UNILA -->
+            <div class="group-card">
+              <div
+                class="group-cover"
+                style="background: linear-gradient(135deg, #f093fb, #f5576c)"
+              >
+                <span>🌸</span>
+              </div>
+              <div class="group-info">
+                <h4>KKN CANTI UNILA</h4>
+                <p>20 anggota • Grup KKN</p>
+                <div class="group-messages">
+                  <div class="message-item">
+                    <img
+                      src="https://api.dicebear.com/7.x/avataaars/svg?seed=alba&backgroundColor=a8edea"
+                      alt=""
+                    />
+                    <div class="message-content">
+                      <div class="message-author">Alba</div>
+                      <div class="message-text">
+                        HBD kak Nabila! Semoga semua impian tercapai! 🌟
+                      </div>
+                    </div>
+                  </div>
+                  <div class="message-item">
+                    <img
+                      src="https://api.dicebear.com/7.x/avataaars/svg?seed=yudha&backgroundColor=ffdfbf"
+                      alt=""
+                    />
+                    <div class="message-content">
+                      <div class="message-author">Yudha</div>
+                      <div class="message-text">
+                        Sehat selalu ya kak! Lancar skripsinya! 📚
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="group-message">
+                  <p>
+                    "Happy birthday Nabila! Wish you all the best! Semoga cepat
+                    wisuda dan sukses selalu! 🎓"
+                  </p>
+                  <small>- Alba, Yudha & Keluarga Canti UNILA</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- KKN CANTI-X UNILA -->
+            <div class="group-card">
+              <div
+                class="group-cover"
+                style="background: linear-gradient(135deg, #a8edea, #fed6e3)"
+              >
+                <span>💫</span>
+              </div>
+              <div class="group-info">
+                <h4>KKN CANTI-X UNILA</h4>
+                <p>25 anggota • Grup KKN</p>
+                <div class="group-messages">
+                  <div class="message-item">
+                    <img
+                      src="https://api.dicebear.com/7.x/avataaars/svg?seed=dzaky&backgroundColor=fed6e3"
+                      alt=""
+                    />
+                    <div class="message-content">
+                      <div class="message-author">Dzaky</div>
+                      <div class="message-text">
+                        Selamat ulang tahun kak Nabila! Bahagia selalu! 🎉
+                      </div>
+                    </div>
+                  </div>
+                  <div class="message-item">
+                    <img
+                      src="https://api.dicebear.com/7.x/avataaars/svg?seed=rendy&backgroundColor=c0aede"
+                      alt=""
+                    />
+                    <div class="message-content">
+                      <div class="message-author">Rendy</div>
+                      <div class="message-text">
+                        HBD kak Nabila! Semoga panjang umur! 🎂💕
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="group-message">
+                  <p>
+                    "Selamat ulang tahun kak Nabila! Semoga panjang umur, sehat
+                    selalu, dan lancar skripsinya! Fighting! 🔥"
+                  </p>
+                  <small>- Dzaky, Rendy & Tim Canti-X UNILA</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar-right">
+          <div class="sidebar-section-title">Pacar Kesayangan</div>
+          <a
+            href="#"
+            class="sidebar-menu-item special-friend"
+            onclick="showFriendProfile('salman')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=salman&backgroundColor=b6e3f4"
+              alt=""
+            />
+            <div class="friend-info">
+              <span class="friend-name">Salman Ganteng</span>
+              <span class="friend-status online">💕 Online</span>
+            </div>
+          </a>
+
+          <div class="sidebar-section-title">Teman Terdekat</div>
+          <a
+            href="#"
+            class="sidebar-menu-item"
+            onclick="showFriendProfile('lia')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=lia"
+              alt=""
+            />
+            <span>Lia Jomblo</span>
+          </a>
+          <a
+            href="#"
+            class="sidebar-menu-item"
+            onclick="showFriendProfile('tere')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=tere"
+              alt=""
+            />
+            <span>Tere Softspoken</span>
+          </a>
+          <a
+            href="#"
+            class="sidebar-menu-item"
+            onclick="showFriendProfile('eliza')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=eliza"
+              alt=""
+            />
+            <span>Eliza Bucin</span>
+          </a>
+          <a
+            href="#"
+            class="sidebar-menu-item"
+            onclick="showFriendProfile('puspa')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=puspa"
+              alt=""
+            />
+            <span>Puspa Korpri</span>
+          </a>
+          <a
+            href="#"
+            class="sidebar-menu-item"
+            onclick="showFriendProfile('septi')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=septi"
+              alt=""
+            />
+            <span>Septi Itera Olympic</span>
+          </a>
+          <a
+            href="#"
+            class="sidebar-menu-item"
+            onclick="showFriendProfile('rizka')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=rizka"
+              alt=""
+            />
+            <span>Rizka Aja</span>
+          </a>
+          <a
+            href="#"
+            class="sidebar-menu-item"
+            onclick="showFriendProfile('abryan')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=abryan"
+              alt=""
+            />
+            <span>Abryan</span>
+          </a>
+          <a
+            href="#"
+            class="sidebar-menu-item"
+            onclick="showFriendProfile('caca')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=caca"
+              alt=""
+            />
+            <span>Caca</span>
+          </a>
+
+          <div class="sidebar-section-title">Teman KKN</div>
+          <a
+            href="#"
+            class="sidebar-menu-item"
+            onclick="showFriendProfile('bitra')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=bitra"
+              alt=""
+            />
+            <span>Bitra</span>
+          </a>
+          <a
+            href="#"
+            class="sidebar-menu-item"
+            onclick="showFriendProfile('alba')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=alba"
+              alt=""
+            />
+            <span>Alba</span>
+          </a>
+          <a
+            href="#"
+            class="sidebar-menu-item"
+            onclick="showFriendProfile('yudha')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=yudha"
+              alt=""
+            />
+            <span>Yudha</span>
+          </a>
+          <a
+            href="#"
+            class="sidebar-menu-item"
+            onclick="showFriendProfile('dzaky')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=dzaky"
+              alt=""
+            />
+            <span>Dzaky</span>
+          </a>
+          <a
+            href="#"
+            class="sidebar-menu-item"
+            onclick="showFriendProfile('rendy')"
+          >
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=rendy"
+              alt=""
+            />
+            <span>Rendy</span>
+          </a>
+        </aside>
+      </div>
+
+      <!-- Messenger Bubble -->
+      <div class="messenger-bubble" onclick="openLetterModal()">
+        <i class="fas fa-envelope"></i>
+        <div class="notification-dot"></div>
+      </div>
+    </div>
+
+    <!-- ==================== MODALS ==================== -->
+
+    <!-- Letter Modal - Real Letter Design -->
+    <div class="modal" id="letter-modal">
+      <div class="modal-overlay" onclick="closeLetterModal()"></div>
+      <div class="letter-container">
+        <div class="letter-envelope" id="envelope" onclick="openEnvelope()">
+          <div class="envelope-front">
+            <div class="envelope-seal">💕</div>
+            <p class="envelope-text">Untuk: Nabila tersayang</p>
+            <p class="envelope-subtext">Klik untuk membuka 💌</p>
+          </div>
+        </div>
+        <div class="letter-paper" id="letter-paper">
+          <button class="letter-close-btn" onclick="closeLetterModal()">
+            ×
+          </button>
+          <div class="letter-header">
+            <div class="letter-date">29 November 2025</div>
+            <div class="letter-stamp">💕</div>
+          </div>
+          <div class="letter-greeting">Untuk Nabila tersayang,</div>
+          <div class="letter-body">
+            <p>Happy 21st Birthday, sayang! 🎂</p>
+            <p>
+              Di hari yang spesial ini, aku mau bilang betapa bersyukurnya aku
+              bisa punya kamu di hidupku. Kamu adalah hadiah terindah yang
+              pernah aku terima. 💝
+            </p>
+            <p>
+              Terima kasih sudah menjadi pacar yang luar biasa. Kamu selalu ada
+              di saat aku butuh, selalu support mimpi-mimpiku, dan selalu bikin
+              hari-hariku lebih berwarna. ✨
+            </p>
+            <p>
+              Di umur 21 ini, aku doakan semoga semua harapanmu tercapai,
+              skripsinya lancar, dan kita bisa wisuda bareng tahun depan! 🎓✨
+            </p>
+            <p>
+              Aku akan selalu ada untukmu, di saat senang maupun susah. Aku
+              janji akan terus berusaha jadi pacar yang terbaik buat kamu.
+            </p>
+            <p>I love you more than words can say! 💕</p>
+          </div>
+          <div class="letter-closing">
+            <p>Dengan segenap cinta,</p>
+            <p class="letter-signature">Salman 💙</p>
+          </div>
+          <div class="letter-footer">
+            <span>PS: Kamu adalah alasan senyumku setiap hari 😊</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div class="modal" id="quiz-modal">
+      <div class="modal-overlay" onclick="closeQuizModal()"></div>
+      <div class="modal-content quiz-modal-content">
+        <div class="modal-header">
+          <h2>💕 Quiz Seberapa Kenal Salman? 💕</h2>
+          <button class="modal-close" onclick="closeQuizModal()">×</button>
+        </div>
+        <div class="quiz-container" id="quiz-container">
+          <!-- Quiz content will be populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Wheel Modal - With Emoji Text Labels -->
+    <div class="modal" id="wheel-modal">
+      <div class="modal-overlay" onclick="closeModal('wheel-modal')"></div>
+      <div class="modal-content wheel-modal-content">
+        <div class="modal-header">
+          <h2>🎡 Spin & Win! 🎡</h2>
+          <button class="modal-close" onclick="closeModal('wheel-modal')">
+            ×
+          </button>
+        </div>
+        <div class="wheel-container">
+          <div class="wheel-wrapper">
+            <div class="wheel-pointer">📍</div>
+            <div class="wheel" id="wheel">
+              <!-- Segments (colors only) -->
+              <div class="wheel-segment" data-prize="🤗 Pelukan 5 Menit"></div>
+              <div class="wheel-segment" data-prize="😘 Ciuman di Kening"></div>
+              <div class="wheel-segment" data-prize="☕ Quality Time"></div>
+              <div class="wheel-segment" data-prize="🍕 Traktir Makan"></div>
+              <div class="wheel-segment" data-prize="🎬 Nonton Bareng"></div>
+              <div class="wheel-segment" data-prize="🚶 Jalan-jalan"></div>
+              <div class="wheel-segment" data-prize="💌 Kata Sayang"></div>
+              <div
+                class="wheel-segment"
+                data-prize="💝 JACKPOT! Semua Hadiah!"
+              ></div>
+              <!-- Labels positioned on top -->
+              <div class="wheel-labels">
+                <div class="wheel-label"><span>🤗 Pelukan</span></div>
+                <div class="wheel-label"><span>😘 Ciuman</span></div>
+                <div class="wheel-label"><span>☕ Quality</span></div>
+                <div class="wheel-label"><span>🍕 Traktir</span></div>
+                <div class="wheel-label"><span>🎬 Nonton</span></div>
+                <div class="wheel-label"><span>🚶 Jalan2</span></div>
+                <div class="wheel-label"><span>💌 Sayang</span></div>
+                <div class="wheel-label"><span>💝 JACKPOT</span></div>
+              </div>
+              <div class="wheel-center">❤️</div>
+            </div>
+          </div>
+          <button class="spin-btn" id="spin-btn" onclick="spinWheel()">
+            <i class="fas fa-sync-alt"></i> PUTAR!
+          </button>
+          <div class="wheel-result" id="wheel-result"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="gallery-modal">
+      <div class="modal-overlay" onclick="closeGalleryModal()"></div>
+      <div class="modal-content gallery-modal-content">
+        <div class="modal-header">
+          <h2>📸 Galeri Kenangan 📸</h2>
+          <button class="modal-close" onclick="closeGalleryModal()">×</button>
+        </div>
+        <div class="gallery-viewer">
+          <button class="gallery-nav prev" onclick="prevImage()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="gallery-main">
+            <img
+              id="gallery-main-img"
+              src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800"
+              alt=""
+            />
+            <div class="gallery-caption" id="gallery-caption">
+              Momen indah bersama 💕
+            </div>
+          </div>
+          <button class="gallery-nav next" onclick="nextImage()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="gallery-thumbnails" id="gallery-thumbnails">
+          <!-- Thumbnails will be populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Story Modal -->
+    <div class="modal" id="story-modal">
+      <div class="modal-overlay" onclick="closeStoryModal()"></div>
+      <div class="story-viewer" id="story-content">
+        <!-- Story content will be populated by JS -->
+      </div>
+    </div>
+
+    <!-- Friend Profile Modal -->
+    <div class="modal" id="friend-modal">
+      <div class="modal-overlay" onclick="closeFriendModal()"></div>
+      <div class="modal-content friend-modal-content">
+        <button class="modal-close" onclick="closeFriendModal()">×</button>
+        <div class="friend-profile-header" id="friend-profile-header">
+          <!-- Will be populated by JS -->
+        </div>
+        <div class="friend-profile-body" id="friend-profile-body">
+          <!-- Will be populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Truth or Dare Modal -->
+    <div class="modal" id="tod-modal">
+      <div class="modal-overlay" onclick="closeTruthOrDare()"></div>
+      <div class="modal-content tod-modal-content">
+        <div class="modal-header">
+          <h2>🎲 Truth or Dare 🎲</h2>
+          <button class="modal-close" onclick="closeTruthOrDare()">×</button>
+        </div>
+        <div class="tod-container">
+          <div class="tod-buttons">
+            <button class="tod-btn truth" onclick="getTruth()">
+              <i class="fas fa-question-circle"></i>
+              <span>Truth</span>
+            </button>
+            <button class="tod-btn dare" onclick="getDare()">
+              <i class="fas fa-bolt"></i>
+              <span>Dare</span>
+            </button>
+          </div>
+          <div class="tod-result" id="tod-result"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Love Calculator Modal -->
+    <div class="modal" id="love-calc-modal">
+      <div class="modal-overlay" onclick="closeLoveCalculator()"></div>
+      <div class="modal-content love-calc-content">
+        <div class="modal-header">
+          <h2>💕 Love Calculator 💕</h2>
+          <button class="modal-close" onclick="closeLoveCalculator()">×</button>
+        </div>
+        <div class="love-calc-container">
+          <div class="love-names">
+            <div class="love-name-box">
+              <img
+                src="https://api.dicebear.com/7.x/avataaars/svg?seed=salman&backgroundColor=b6e3f4"
+                alt=""
+              />
+              <span>Salman</span>
+            </div>
+            <div class="love-heart-anim">💕</div>
+            <div class="love-name-box">
+              <img
+                src="https://api.dicebear.com/7.x/avataaars/svg?seed=nabila&backgroundColor=ffdfbf"
+                alt=""
+              />
+              <span>Nabila</span>
+            </div>
+          </div>
+          <button class="love-calc-btn" onclick="calculateLove()">
+            <i class="fas fa-heart"></i> Hitung Kecocokan!
+          </button>
+          <div class="love-result" id="love-result"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Countdown Modal -->
+    <div class="modal" id="countdown-modal">
+      <div class="modal-overlay" onclick="closeCountdownModal()"></div>
+      <div class="modal-content countdown-modal-content">
+        <div class="modal-header">
+          <h2>📅 Anniversary Countdown 📅</h2>
+          <button class="modal-close" onclick="closeCountdownModal()">×</button>
+        </div>
+        <div class="countdown-container">
+          <div class="countdown-title">Menuju 1 Tahun Bersama! 💕</div>
+          <div class="countdown-date">2 Mei 2026</div>
+          <div class="countdown-boxes" id="countdown-boxes">
+            <!-- Will be populated by JS -->
+          </div>
+          <div class="countdown-message">
+            <p>Setiap hari bersamamu adalah anugerah 💙</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div class="modal" id="wishlist-modal">
+      <div class="modal-overlay" onclick="closeWishlistModal()"></div>
+      <div class="modal-content wishlist-modal-content">
+        <div class="modal-header">
+          <h2>🎁 Wishlist Nabila 🎁</h2>
+          <button class="modal-close" onclick="closeWishlistModal()">×</button>
+        </div>
+        <div class="wishlist-container">
+          <div class="wishlist-item">
+            <span class="wishlist-emoji">🎓</span>
+            <div class="wishlist-text">
+              <h4>Wisuda Bareng</h4>
+              <p>Semoga bisa wisuda bareng Salman tahun depan!</p>
+            </div>
+          </div>
+          <div class="wishlist-item">
+            <span class="wishlist-emoji">✈️</span>
+            <div class="wishlist-text">
+              <h4>Jalan-jalan Bareng</h4>
+              <p>Liburan ke tempat seru bareng pacar!</p>
+            </div>
+          </div>
+          <div class="wishlist-item">
+            <span class="wishlist-emoji">💍</span>
+            <div class="wishlist-text">
+              <h4>Masa Depan Indah</h4>
+              <p>Semoga hubungan ini sampai ke jenjang yang lebih serius 💕</p>
+            </div>
+          </div>
+          <div class="wishlist-item">
+            <span class="wishlist-emoji">💪</span>
+            <div class="wishlist-text">
+              <h4>Sukses Bersama</h4>
+              <p>Semoga karir dan cita-cita kita tercapai!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Player Modal -->
+    <div class="modal" id="video-modal">
+      <div class="modal-overlay" onclick="closeVideoModal()"></div>
+      <div class="modal-content video-modal-content">
+        <div class="modal-header">
+          <h2 id="video-title">Video Kenangan</h2>
+          <button class="modal-close" onclick="closeVideoModal()">×</button>
+        </div>
+        <div class="video-player-container">
+          <div class="video-placeholder">
+            <i class="fas fa-film"></i>
+            <p>Video akan ditambahkan segera!</p>
+            <p class="video-note">Upload video kenangan kalian di sini 💕</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alert Modal -->
+    <div class="modal" id="alert-modal">
+      <div class="modal-overlay" onclick="closeAlertModal()"></div>
+      <div class="modal-content alert-modal-content">
+        <div class="alert-icon" id="alert-icon">✅</div>
+        <h3 id="alert-title">Berhasil!</h3>
+        <p id="alert-message">Pesan alert</p>
+        <button class="alert-btn" onclick="closeAlertModal()">OK</button>
+      </div>
+    </div>
+
+    <!-- Thesis Lab Modal - Mini Game Racikan Kelulusan -->
+    <div class="modal" id="thesis-lab-modal">
+      <div class="modal-overlay" onclick="closeThesisLab()"></div>
+      <div class="modal-content">
+        <div class="thesis-lab-container">
+          <!-- Background Effects -->
+          <div class="lab-bg-effects">
+            <div class="blob1"></div>
+            <div class="blob2"></div>
+          </div>
+
+          <!-- Close Button -->
+          <button class="lab-close-btn" onclick="closeThesisLab()">×</button>
+
+          <!-- Header -->
+          <div class="lab-header">
+            <span class="lab-badge"
+              ><i class="fas fa-spinner fa-spin"></i> Phase: Synthesis</span
+            >
+            <h2 class="lab-title">🧪 Racikan Kelulusan</h2>
+            <p class="lab-subtitle">
+              Campurkan 4 elemen wajib untuk menuntaskan skripsi!
+            </p>
+          </div>
+
+          <!-- Potions -->
+          <div class="potions-area" id="potions-area">
+            <div
+              class="lab-potion"
+              onclick="addPotion(this, 'blue', 'Data Valid')"
+              data-used="false"
+            >
+              <div class="potion-cap"></div>
+              <div class="potion-bottle">
+                <div class="potion-fill blue"></div>
+                <i class="fas fa-database potion-icon"></i>
+              </div>
+              <span class="potion-label">Data Valid</span>
+            </div>
+            <div
+              class="lab-potion"
+              onclick="addPotion(this, 'pink', 'Revisi ACC')"
+              data-used="false"
+            >
+              <div class="potion-cap"></div>
+              <div class="potion-bottle">
+                <div class="potion-fill pink"></div>
+                <i class="fas fa-check-double potion-icon"></i>
+              </div>
+              <span class="potion-label">Revisi ACC</span>
+            </div>
+            <div
+              class="lab-potion"
+              onclick="addPotion(this, 'purple', 'Restu Dosen')"
+              data-used="false"
+            >
+              <div class="potion-cap"></div>
+              <div class="potion-bottle">
+                <div class="potion-fill purple"></div>
+                <i class="fas fa-user-tie potion-icon"></i>
+              </div>
+              <span class="potion-label">Restu Dosen</span>
+            </div>
+            <div
+              class="lab-potion"
+              onclick="addPotion(this, 'orange', 'Mental Baja')"
+              data-used="false"
+            >
+              <div class="potion-cap"></div>
+              <div class="potion-bottle">
+                <div class="potion-fill orange"></div>
+                <i class="fas fa-fire potion-icon"></i>
+              </div>
+              <span class="potion-label">Mental Baja</span>
+            </div>
+          </div>
+
+          <!-- Flask -->
+          <div class="flask-area">
+            <div class="flask-wrapper">
+              <div class="explosion-container" id="lab-explosion"></div>
+              <div class="flask-neck" id="lab-flask-neck"></div>
+              <div class="flask-body" id="lab-flask-body">
+                <div class="flask-liquid" id="lab-liquid"></div>
+                <div class="bubbles-container" id="lab-bubbles"></div>
+                <div class="energy-core" id="lab-energy-core"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Status -->
+          <div class="status-area">
+            <p class="status-text" id="lab-status">
+              WAITING FOR INGREDIENTS...
+            </p>
+            <div class="progress-bar">
+              <div class="progress-fill" id="lab-progress"></div>
+            </div>
+          </div>
+
+          <!-- Result Overlay -->
+          <div class="lab-result-overlay" id="lab-result-overlay">
+            <div class="result-card">
+              <div class="result-header">
+                <i
+                  class="fas fa-university"
+                  style="
+                    position: absolute;
+                    top: 15px;
+                    left: 15px;
+                    font-size: 24px;
+                    opacity: 0.3;
+                  "
+                ></i>
+                <h3>SURAT KEPUTUSAN</h3>
+                <p>No: 21/HBD/NABILA/2025</p>
+              </div>
+              <div class="result-body">
+                <div class="result-name">
+                  <small>Menyatakan bahwa mahasiswa:</small>
+                  <h2>Nabila</h2>
+                  <span class="status-badge">Status: 21 Years Old</span>
+                </div>
+                <div class="result-mission">
+                  <p>TELAH MENYELESAIKAN MISI:</p>
+                  <div class="mission-complete">
+                    <i class="fas fa-check-circle"></i>
+                    <span>LEVEL UP TO 21</span>
+                  </div>
+                </div>
+                <div class="result-message">
+                  "Semoga skripsinya lancar tanpa banyak revisi, dosen penguji
+                  tiba-tiba baik hati, data valid semua, dan bisa wisuda tahun
+                  ini dengan predikat Cum Laude! Selamat Ulang Tahun, Pejuang
+                  Toga! 🎓✨"
+                </div>
+                <div class="result-footer">
+                  <div class="stamp-area">
+                    <i
+                      class="fas fa-stamp"
+                      style="font-size: 24px; transform: rotate(-12deg)"
+                    ></i>
+                  </div>
+                  <div class="signature-area">
+                    <div class="signature">Happy Birthday!</div>
+                    <div class="sign-line"></div>
+                    <div class="sign-title">
+                      Dekan Fakultas Cinta<br /><span style="font-size: 8px"
+                        >(Salman Ganteng)</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <!-- modals.js DIHAPUS karena duplikat dengan app.js -->
+    <script src="js/app.js"></script>
+  </body>
+</html>

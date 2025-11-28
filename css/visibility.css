@@ -1,0 +1,35 @@
+/* ==========================================
+   PAGE VISIBILITY - Login Protection
+   File ini HARUS di-import TERAKHIR
+   Menggunakan class .logged-in untuk kontrol
+   ========================================== */
+
+/* Default: Login terlihat, Main tersembunyi */
+html body #login-page {
+  display: flex !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 9999 !important;
+  overflow: auto !important;
+}
+
+html body #main-app {
+  display: none !important;
+}
+
+/* Saat logged in: Login tersembunyi, Main terlihat */
+html body.logged-in #login-page {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+html body.logged-in #main-app {
+  display: block !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}

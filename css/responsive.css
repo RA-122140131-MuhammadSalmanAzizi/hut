@@ -1,0 +1,285 @@
+/* ==========================================
+   RESPONSIVE STYLES
+   ========================================== */
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .header-center {
+    max-width: 680px;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+  .header-search input {
+    width: 200px;
+  }
+
+  .header-search input:focus {
+    width: 220px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .login-hero {
+    text-align: center;
+  }
+
+  .login-hero .logo {
+    font-size: 42px;
+    justify-content: center;
+  }
+
+  .login-hero .tagline {
+    font-size: 20px;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 396px;
+  }
+
+  .header-search {
+    display: none;
+  }
+
+  .header-center {
+    display: none;
+  }
+
+  .header-profile span {
+    display: none;
+  }
+
+  .main-container {
+    padding: 8px;
+  }
+
+  .feed-container {
+    padding: 0 8px;
+  }
+
+  .left-sidebar,
+  .right-sidebar {
+    display: none;
+  }
+
+  .main-content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .header {
+    padding: 0 12px;
+  }
+
+  .header-logo .logo-text {
+    font-size: 20px;
+  }
+
+  .header-logo .logo-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .header-icon-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .header-profile img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .header-right {
+    gap: 4px;
+  }
+
+  .birthday-banner {
+    padding: 16px;
+  }
+
+  .birthday-banner h2 {
+    font-size: 24px;
+  }
+
+  .birthday-banner p {
+    font-size: 14px;
+  }
+
+  .couple-person img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .couple-display {
+    gap: 12px;
+  }
+
+  .couple-heart {
+    font-size: 24px;
+  }
+
+  .activities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    padding: 10px;
+  }
+
+  .modal-content {
+    border-radius: var(--radius-md);
+  }
+
+  .videos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .marketplace-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .friends-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Story Cards */
+  .story-card {
+    min-width: 100px;
+    height: 180px;
+  }
+
+  /* Post */
+  .post-header {
+    padding: 10px 12px;
+  }
+
+  .post-content {
+    padding: 0 12px 10px;
+  }
+
+  .post-actions {
+    padding: 4px 8px;
+  }
+
+  /* Letter */
+  .letter-paper {
+    padding: 24px 24px 24px 50px;
+    max-width: 95%;
+  }
+
+  .letter-paper::before {
+    left: 24px;
+  }
+
+  .letter-paper::after {
+    left: 40px;
+  }
+
+  .letter-body {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .letter-greeting {
+    font-size: 18px;
+  }
+
+  /* Wheel */
+  .wheel {
+    width: 240px;
+    height: 240px;
+  }
+
+  .wheel-center {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+
+  .wheel-label span {
+    font-size: 9px;
+    padding: 2px 4px;
+  }
+
+  .wheel-label:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(22.5deg) translateY(-80px)
+      rotate(-22.5deg);
+  }
+  .wheel-label:nth-child(2) {
+    transform: translate(-50%, -50%) rotate(67.5deg) translateY(-80px)
+      rotate(-67.5deg);
+  }
+  .wheel-label:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(112.5deg) translateY(-80px)
+      rotate(-112.5deg);
+  }
+  .wheel-label:nth-child(4) {
+    transform: translate(-50%, -50%) rotate(157.5deg) translateY(-80px)
+      rotate(-157.5deg);
+  }
+  .wheel-label:nth-child(5) {
+    transform: translate(-50%, -50%) rotate(202.5deg) translateY(-80px)
+      rotate(-202.5deg);
+  }
+  .wheel-label:nth-child(6) {
+    transform: translate(-50%, -50%) rotate(247.5deg) translateY(-80px)
+      rotate(-247.5deg);
+  }
+  .wheel-label:nth-child(7) {
+    transform: translate(-50%, -50%) rotate(292.5deg) translateY(-80px)
+      rotate(-292.5deg);
+  }
+  .wheel-label:nth-child(8) {
+    transform: translate(-50%, -50%) rotate(337.5deg) translateY(-80px)
+      rotate(-337.5deg);
+  }
+
+  .dropdown-menu {
+    width: 280px;
+    right: -10px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 400px) {
+  .header {
+    padding: 0 8px;
+  }
+
+  .header-logo .logo-text {
+    font-size: 18px;
+  }
+
+  .header-logo .logo-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .header-icon-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .login-cute-card {
+    padding: 24px 16px;
+  }
+
+  .login-title {
+    font-size: 28px;
+  }
+
+  .marketplace-grid {
+    grid-template-columns: 1fr;
+  }
+}

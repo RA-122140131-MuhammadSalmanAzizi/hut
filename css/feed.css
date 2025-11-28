@@ -1,0 +1,623 @@
+/* ==========================================
+   FEED COMPONENTS - Banner, Stories, Cards
+   ========================================== */
+
+/* Birthday Banner */
+.birthday-banner {
+  background: linear-gradient(135deg, var(--love-pink) 0%, #c44569 100%);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 16px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.birthday-banner .balloons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 28px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.birthday-banner h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.birthday-banner p {
+  font-size: 16px;
+  opacity: 0.95;
+}
+
+/* ==========================================
+   STORIES - Facebook Style
+   ========================================== */
+.stories-section {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.stories-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.stories-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.stories-header a {
+  color: var(--fb-blue);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.stories-header a:hover {
+  text-decoration: underline;
+}
+
+.stories-grid {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.stories-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.story-card {
+  min-width: 112px;
+  height: 200px;
+  border-radius: var(--radius-lg);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.story-card:hover {
+  transform: scale(1.02);
+}
+
+.story-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.story-card .story-avatar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: 4px solid var(--fb-blue);
+  overflow: hidden;
+  background: white;
+}
+
+.story-card .story-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-card .story-name {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.story-card.create-story {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.story-card.create-story::before {
+  display: none;
+}
+
+.story-card.create-story .story-img {
+  height: 130px;
+  background-size: cover;
+  background-position: center;
+}
+
+.story-card.create-story .story-create-btn {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: var(--fb-blue);
+  border: 4px solid var(--bg-secondary);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+}
+
+.story-card.create-story .story-name {
+  color: var(--text-primary);
+  text-align: center;
+  bottom: 16px;
+  text-shadow: none;
+}
+
+/* ==========================================
+   RELATIONSHIP STATUS CARD
+   ========================================== */
+.relationship-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.relationship-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.relationship-header i {
+  font-size: 24px;
+  color: var(--love-pink);
+}
+
+.relationship-header h3 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.couple-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.couple-person {
+  text-align: center;
+}
+
+.couple-person img {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-full);
+  border: 3px solid var(--fb-blue);
+  margin-bottom: 8px;
+}
+
+.couple-person .name {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.couple-heart {
+  font-size: 32px;
+  color: var(--love-pink);
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.relationship-stats {
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+}
+
+.relationship-stats .since {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.relationship-stats .days-count {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--fb-blue);
+  line-height: 1.2;
+}
+
+.relationship-stats .days-count .count {
+  background: linear-gradient(135deg, var(--fb-blue), var(--love-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.relationship-stats .days-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* ==========================================
+   ACTIVITIES / GAMES CARD
+   ========================================== */
+.activities-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.activities-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.activities-header i {
+  font-size: 24px;
+  color: var(--love-purple);
+}
+
+.activities-header h3 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.activity-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+  background: var(--bg-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.activity-btn:hover {
+  background: var(--bg-tertiary);
+  transform: translateY(-2px);
+}
+
+.activity-btn i {
+  font-size: 28px;
+}
+
+.activity-btn span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* ==========================================
+   POST CARD
+   ========================================== */
+.post-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+.post-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+}
+
+.post-header-info {
+  flex: 1;
+}
+
+.post-author {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.post-meta {
+  font-size: 13px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.post-content {
+  padding: 0 16px 12px;
+}
+
+.post-content p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.post-image {
+  width: 100%;
+}
+
+.post-image img {
+  width: 100%;
+  display: block;
+}
+
+.post-reactions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.reactions-count {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.reaction-icons {
+  display: flex;
+}
+
+.reaction-icons span {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  margin-right: -4px;
+}
+
+.comments-count {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.post-actions {
+  display: flex;
+  padding: 4px 16px;
+}
+
+.post-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: background 0.2s;
+}
+
+.post-action-btn:hover {
+  background: var(--bg-hover);
+}
+
+.post-action-btn.liked {
+  color: var(--love-pink);
+}
+
+.post-action-btn i {
+  font-size: 18px;
+}
+
+/* ==========================================
+   POST MEDIA & COMMENTS
+   ========================================== */
+.post-media {
+  width: 100%;
+}
+
+.post-media img {
+  width: 100%;
+  display: block;
+}
+
+.comment-share-count {
+  display: flex;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.comment-share-count span {
+  cursor: pointer;
+}
+
+.comment-share-count span:hover {
+  text-decoration: underline;
+}
+
+.reaction-icons {
+  display: flex;
+  margin-right: 6px;
+}
+
+.reaction-icons .icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  margin-left: -4px;
+  border: 2px solid var(--bg-secondary);
+}
+
+.reaction-icons .icon:first-child {
+  margin-left: 0;
+}
+
+.reaction-icons .icon.love {
+  background: #f33e58;
+  color: white;
+}
+
+.reaction-icons .icon.like {
+  background: var(--fb-blue);
+  color: white;
+}
+
+.reaction-count {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+/* Post Comments Section */
+.post-comments-section {
+  display: none;
+  padding: 12px 16px;
+  border-top: 1px solid var(--divider);
+}
+
+.post-comments-section.show {
+  display: block;
+}
+
+.comment-input-wrap {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.comment-input-wrap img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.comment-input-wrap .input-box {
+  flex: 1;
+}
+
+.comment-input-wrap .input-box input {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: var(--bg-primary);
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+.comment-input-wrap .input-box input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--fb-blue-light);
+}
+
+.comment-item {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.comment-item img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.comment-bubble {
+  background: var(--bg-primary);
+  padding: 8px 12px;
+  border-radius: 18px;
+  max-width: 80%;
+}
+
+.comment-bubble .author {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.comment-bubble .text {
+  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* Post Hashtags */
+.hashtags {
+  color: var(--fb-blue);
+  font-size: 14px;
+}
