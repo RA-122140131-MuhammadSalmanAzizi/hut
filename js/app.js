@@ -90,6 +90,43 @@ document.addEventListener("click", (e) => {
 });
 
 // ==========================================
+// MOBILE SIDEBAR TOGGLE
+// ==========================================
+const MOBILE_SIDEBAR_ANIMATION_MS = 300;
+
+function toggleMobileSidebar() {
+  const sidebar = document.querySelector(".sidebar-left");
+  const overlay = document.getElementById("mobile-sidebar-overlay");
+  
+  if (sidebar && overlay) {
+    if (sidebar.classList.contains("mobile-open")) {
+      closeMobileSidebar();
+    } else {
+      sidebar.classList.remove("mobile-closing");
+      sidebar.classList.add("mobile-open");
+      overlay.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+  }
+}
+
+function closeMobileSidebar() {
+  const sidebar = document.querySelector(".sidebar-left");
+  const overlay = document.getElementById("mobile-sidebar-overlay");
+  
+  if (sidebar && overlay) {
+    sidebar.classList.add("mobile-closing");
+    overlay.classList.remove("show");
+    document.body.style.overflow = "";
+    
+    // Remove classes after animation completes (matches CSS animation duration)
+    setTimeout(() => {
+      sidebar.classList.remove("mobile-open", "mobile-closing");
+    }, MOBILE_SIDEBAR_ANIMATION_MS);
+  }
+}
+
+// ==========================================
 // PLACEHOLDER FUNCTIONS (Coming Soon)
 // ==========================================
 // ==========================================
@@ -1430,3 +1467,5 @@ window.getDare = getDare;
 window.openThesisLab = openThesisLab;
 window.closeThesisLab = closeThesisLab;
 window.addPotion = addPotion;
+window.toggleMobileSidebar = toggleMobileSidebar;
+window.closeMobileSidebar = closeMobileSidebar;
