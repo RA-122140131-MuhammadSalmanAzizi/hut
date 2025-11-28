@@ -92,6 +92,8 @@ document.addEventListener("click", (e) => {
 // ==========================================
 // MOBILE SIDEBAR TOGGLE
 // ==========================================
+const MOBILE_SIDEBAR_ANIMATION_MS = 300;
+
 function toggleMobileSidebar() {
   const sidebar = document.querySelector(".sidebar-left");
   const overlay = document.getElementById("mobile-sidebar-overlay");
@@ -117,10 +119,10 @@ function closeMobileSidebar() {
     overlay.classList.remove("show");
     document.body.style.overflow = "";
     
-    // Remove classes after animation completes
+    // Remove classes after animation completes (matches CSS animation duration)
     setTimeout(() => {
       sidebar.classList.remove("mobile-open", "mobile-closing");
-    }, 300);
+    }, MOBILE_SIDEBAR_ANIMATION_MS);
   }
 }
 

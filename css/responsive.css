@@ -317,7 +317,6 @@
 
 /* Mobile Sidebar Overlay */
 .mobile-sidebar-overlay {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -326,12 +325,13 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .mobile-sidebar-overlay.show {
-  display: block;
   opacity: 1;
+  visibility: visible;
 }
 
 /* Mobile Sidebar Styles */
